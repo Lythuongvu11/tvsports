@@ -4,16 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Permission\Models\Role as ModelsRole;
 
-class Role extends ModelsRole
+class CartProduct extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'display_name',
-        'group',
+        'user_id',
+        'product_id',
+        'product_size',
+        'product_color',
+        'product_quantity',
+        'product_price',
     ];
-
 }

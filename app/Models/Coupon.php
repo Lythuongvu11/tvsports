@@ -4,16 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Permission\Models\Role as ModelsRole;
 
-class Role extends ModelsRole
+class Coupon extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'name',
-        'display_name',
-        'group',
+        'type',
+        'value',
+        'expery_date',
     ];
-
 }

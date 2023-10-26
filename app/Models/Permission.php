@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Permission\Models\Role as ModelsRole;
+use Spatie\Permission\Models\Permission as SpatiePermission;
 
-class Role extends ModelsRole
+class Permission extends SpatiePermission
 {
     use HasFactory;
 
@@ -15,5 +15,4 @@ class Role extends ModelsRole
         'display_name',
         'group',
     ];
-
 }
