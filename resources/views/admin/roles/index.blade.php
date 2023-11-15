@@ -38,7 +38,7 @@
                                   method="post">
                                 @csrf
                                 @method('delete')
-                                <button class="btn btn-danger" data-id={{ $role->id }} onclick="deleteRole({{ $role->id }})">Xóa</button>
+                                <button type="button" class="btn btn-danger" data-id={{ $role->id }} onclick="deleteRole({{ $role->id }})">Xóa</button>
                             </form>
                         </td>
                     </tr>

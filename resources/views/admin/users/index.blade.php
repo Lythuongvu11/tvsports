@@ -44,7 +44,7 @@
                                   method="post">
                                 @csrf
                                 @method('delete')
-                                <button type="submit" class="btn btn-danger" data-id={{ $item->id }}>Xóa</button>
+                                <button type="button" class="btn btn-danger" data-id={{ $item->id }} onclick="deleteUser({{ $item->id }})">Xóa</button>
                             </form>
                         </td>
                     </tr>
@@ -54,4 +54,11 @@
         </div>
 
     </div>
+    <script>
+        function deleteUser(userId) {
+            if (confirm("Bạn có chắc chắn muốn xóa người dùng này?")) {
+                document.getElementById('form-delete' + userId).submit();
+            }
+        }
+    </script>
 @endsection
