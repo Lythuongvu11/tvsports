@@ -15,5 +15,7 @@ class Role extends ModelsRole
         'display_name',
         'group',
     ];
-
+    protected $attributes = [
+        'guard_name' => 'web',
+    ];
 }
