@@ -7,6 +7,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/main.css')}}" />
     <link
@@ -35,6 +36,7 @@
     />
     <script src=" {{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js') }}" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js') }}" integrity="sha512-WW8/jxkELe2CAiE4LvQfwm1rajOS8PHasCCx+knHG0gBHt8EXxS6T6tJRTGuDQVnluuAvMxWF4j8SNFDKceLFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('admin/js/main.js') }}"></script>
 </head>
 <body class="app sidebar-mini rtl">
@@ -50,7 +52,7 @@
     <ul class="app-nav">
         <!-- User Menu-->
         <li>
-            <a class="app-nav__item" href=""
+            <a class="app-nav__item" href="{{ route('admin.logout')}}"
             ><i class="bx bx-log-out bx-rotate-180"></i>
             </a>
         </li>

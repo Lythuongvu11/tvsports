@@ -25,7 +25,7 @@ class RoleController extends Controller
     public function index()
     {
         $roles = $this->role::paginate(3);
-        return view('admin.roles.index', compact('roles'));
+        return view('admin.roles.index', compact('roles', ));
     }
 
     /**
@@ -74,8 +74,13 @@ class RoleController extends Controller
     {
         $role = Role::findOrFail($id);
         $dataUpdate = $request->all();
+        $permissionIds = isset($dataUpdate['permission_ids']) ? $dataUpdate['permission_ids'] : [];
         $role->update($dataUpdate);
-        $role->permissions()->sync($dataUpdate['permission_ids']);
+        if (!empty($permissionIds)) {
+            $role->permissions()->sync($permissionIds);
+        } else {
+            $role->permissions()->detach();
+        }
         return to_route('roles.index')->with(['message' => 'Chỉnh sửa thành công']);
     }
 

@@ -17,5 +17,9 @@ class ProductOrder extends Model
         'product_quantity',
         'product_price',
     ];
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 
 }

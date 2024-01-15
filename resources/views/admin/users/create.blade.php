@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title', 'Create User')
+@section('title', 'Tạo mới người dùng')
 @section('content')
     <div class="row">
         <div class="col-md-12">
@@ -20,10 +20,10 @@
                    <div class="col-5 input-group-static mb-3">
                        <label>Avatar</label>
                        <input type="file" id="image-input" name="avatar" class="form-control-file">
-                       @error('avatar')
-                       <span class="text-danger"> {{ $message }}</span>
-                       @enderror
                    </div>
+                   @error('avatar')
+                     <span class="text-danger"> {{ $message }}</span>
+                   @enderror
                    <div class="col-5">
                        <img src="" class="w-50" id="show-image" alt="">
                    </div>
@@ -33,6 +33,13 @@
                     <input type="text" value="{{ old('name') }}" name="name" class="form-control">
                     @error('name')
                     <span class="text-danger"> {{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label>Ngày sinh</label>
+                    <input type="date" value="{{old('birthday')}}" name="birthday" class="form-control">
+                    @error('birthday')
+                    <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="mb-3">

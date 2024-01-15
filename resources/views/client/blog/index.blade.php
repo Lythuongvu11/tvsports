@@ -6,7 +6,7 @@
         <div class="row px-xl-5">
             <div class="col-12">
                 <nav class="breadcrumb bg-light mb-30">
-                    <a class="breadcrumb-item text-dark" href="{{ route('home') }}">Trang chủ</a>
+                    <a class="breadcrumb-item text-dark" href="{{ route('client.home') }}">Trang chủ</a>
                     <span class="breadcrumb-item active">Tin tức</span>
                 </nav>
             </div>

@@ -21,12 +21,15 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'birthday',
         'email',
         'password',
         'phone',
         'address',
         'gender',
         'avatar',
+        'token',
+        'remember_token'
     ];
 
     /**
@@ -48,4 +51,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'user_id');
+    }
+    public function userPoints()
+    {
+        return $this->hasMany(UserPoint::class);
+    }
 }

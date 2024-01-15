@@ -19,7 +19,7 @@
                 @method('PUT')
                 <div class="row">
                     <div class="col-5 input-group-static mb-3">
-                        <label>Avatar</label>
+                        <label>Ảnh đại diện</label>
                         <input type="file" id="image-input" name="avatar" class="form-control-file">
                         @error('avatar')
                         <span class="text-danger"> {{ $message }}</span>
@@ -39,6 +39,14 @@
                 </div>
 
                 <div class="mb-3">
+                    <label>Ngày sinh</label>
+                    <input type="date" value="{{old('birthday') ?? $user->birthday}}" name="birthday" class="form-control">
+                    @error('birthday')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div class="mb-3">
                     <label>Email</label>
                     <input type="email" value="{{ old('email') ?? $user->email }}" name="email" class="form-control">
                     @error('email')
@@ -54,7 +62,7 @@
                     @enderror
                 </div>
 
-                <div class="imb-3">
+                <div class="mb-3">
                     <label name="group" class="ms-0">Giới tính</label>
                     <select name="gender" class="form-control" value={{ $user->gender }}>
                         <option value="male">Nam</option>

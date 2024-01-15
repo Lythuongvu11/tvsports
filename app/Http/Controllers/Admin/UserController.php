@@ -36,7 +36,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = $this->user::paginate(3);
+        $users = $this->user->latest('id')->paginate(3);
         return view('admin.users.index', compact('users'));
     }
 
@@ -56,11 +56,13 @@ class UserController extends Controller
     {
         $dataCreate = $request->all();
         $dataCreate['password'] = Hash::make($request->password);
-        $image = $request->file('avatar');
-        $filename = time() . '.' . $image->getClientOriginalExtension();
-        $path = public_path('uploads/users/' . $filename);
-        Image::make($image)->save($path);
-        $dataCreate['avatar'] = 'uploads/users/' . $filename;
+        if ($request->hasFile('avatar')) {
+            $image = $request->file('avatar');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $path = public_path('uploads/users/' . $filename);
+            Image::make($image)->save($path);
+            $dataCreate['avatar'] = 'uploads/users/' . $filename;
+        }
         $user = $this->user->create($dataCreate);
         $user->roles()->attach($dataCreate['role_ids']);
         return redirect()->route('users.index')->with(['message' => 'Thêm mới thành công']);
@@ -116,11 +118,12 @@ class UserController extends Controller
     public function destroy(string $id)
     {
         $user = User::findOrFail($id);
+        $userRoles = $user->roles()->pluck('id')->toArray();
         if ($user->avatar) {
             $this->deleteOldAvatar($user->avatar);
         }
         $user->delete();
-
+        $user->roles()->detach($userRoles);
         return redirect()->route('users.index')->with(['message' => 'Xóa thành công']);
     }
 }

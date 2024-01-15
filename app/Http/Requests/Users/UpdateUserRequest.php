@@ -23,6 +23,7 @@ class UpdateUserRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'birthday' => 'required|date_format:Y-m-d',
             'phone' => 'required|unique:users,phone,'.$this->user,
             'gender' => 'required',
             'password' => 'nullable|min:6',
@@ -34,6 +35,7 @@ class UpdateUserRequest extends FormRequest
     {
         return [
             'name.required' => 'Trường tên là bắt buộc.',
+            'birthday.required' => 'Trường ngày sinh là bắt buộc.',
             'phone.required' => 'Trường số điện thoại là bắt buộc.',
             'password.required' => 'Trường mật khẩu là bắt buộc.',
             'password.min' => 'Trường mật khẩu phải có ít nhất 6 ký tự.',

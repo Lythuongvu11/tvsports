@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->smallInteger('product_quantity');
             $table->double('product_price');
             $table->foreignIdFor(Order::class)->constrained()->cascadeOnDelete();
-            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
+            $table->foreignId('product_id')->constrained('products')->cascadeOnDelete();
             $table->timestamps();
         });
     }

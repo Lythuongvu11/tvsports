@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-
+@section('title', 'Bảng điều khiển')
 @section('content')
     <div class="row">
         <div class="col-md-12">
@@ -9,187 +9,201 @@
                         <a href="#"><b>Bảng điều khiển</b></a>
                     </li>
                 </ul>
-                <div id="clock"></div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <!--Left-->
-        <div class="col-md-12 col-lg-6">
-            <div class="row">
-                <!-- col-6 -->
-                <div class="col-md-6">
-                    <div class="widget-small primary coloured-icon">
-                        <i class="icon bx bxs-user-account fa-3x"></i>
-                        <div class="info">
-                            <h4>Tổng khách hàng</h4>
-                            <p><b>56 khách hàng</b></p>
-                            <p class="info-tong">Tổng số khách hàng được quản lý.</p>
-                        </div>
+    <div class="row mb-3">
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+                <div class="card-header p-3 pt-2">
+                    <div class="text-end pt-1">
+                        <p class="text-sm mb-0 text-capitalize">Người dùng</p>
+                        <h4 class="mb-0">{{ $userCount }}</h4>
                     </div>
                 </div>
-                <!-- col-6 -->
-                <div class="col-md-6">
-                    <div class="widget-small info coloured-icon">
-                        <i class="icon bx bxs-data fa-3x"></i>
-                        <div class="info">
-                            <h4>Tổng sản phẩm</h4>
-                            <p><b>1850 sản phẩm</b></p>
-                            <p class="info-tong">Tổng số sản phẩm được quản lý.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- col-6 -->
-                <div class="col-md-6">
-                    <div class="widget-small warning coloured-icon">
-                        <i class="icon bx bxs-shopping-bags fa-3x"></i>
-                        <div class="info">
-                            <h4>Tổng đơn hàng</h4>
-                            <p><b>247 đơn hàng</b></p>
-                            <p class="info-tong">Tổng số hóa đơn bán hàng trong tháng.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- col-6 -->
-                <div class="col-md-6">
-                    <div class="widget-small danger coloured-icon">
-                        <i class="icon bx bxs-error-alt fa-3x"></i>
-                        <div class="info">
-                            <h4>Sắp hết hàng</h4>
-                            <p><b>4 sản phẩm</b></p>
-                            <p class="info-tong">
-                                Số sản phẩm cảnh báo hết cần nhập thêm.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- col-12 -->
-                <div class="col-md-12">
-                    <div class="tile">
-                        <h3 class="tile-title">Tình trạng đơn hàng</h3>
-                        <div>
-                            <table class="table table-bordered">
-                                <thead>
-                                <tr>
-                                    <th>ID đơn hàng</th>
-                                    <th>Tên khách hàng</th>
-                                    <th>Tổng tiền</th>
-                                    <th>Trạng thái</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>AL3947</td>
-                                    <td>Phạm Thị Ngọc</td>
-                                    <td>19.770.000 đ</td>
-                                    <td><span class="badge bg-info">Chờ xử lý</span></td>
-                                </tr>
-                                <tr>
-                                    <td>ER3835</td>
-                                    <td>Nguyễn Thị Mỹ Yến</td>
-                                    <td>16.770.000 đ</td>
-                                    <td>
-                                        <span class="badge bg-warning">Đang vận chuyển</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>MD0837</td>
-                                    <td>Triệu Thanh Phú</td>
-                                    <td>9.400.000 đ</td>
-                                    <td>
-                                        <span class="badge bg-success">Đã hoàn thành</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>MT9835</td>
-                                    <td>Đặng Hoàng Phúc</td>
-                                    <td>40.650.000 đ</td>
-                                    <td><span class="badge bg-danger">Đã hủy </span></td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- / div trống-->
-                    </div>
-                </div>
-                <!-- / col-12 -->
-                <!-- col-12 -->
-                <div class="col-md-12">
-                    <div class="tile">
-                        <h3 class="tile-title">Khách hàng mới</h3>
-                        <div>
-                            <table class="table table-hover">
-                                <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Tên khách hàng</th>
-                                    <th>Ngày sinh</th>
-                                    <th>Số điện thoại</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>#183</td>
-                                    <td>Hột vịt muối</td>
-                                    <td>21/7/1992</td>
-                                    <td><span class="tag tag-success">0921387221</span></td>
-                                </tr>
-                                <tr>
-                                    <td>#219</td>
-                                    <td>Bánh tráng trộn</td>
-                                    <td>30/4/1975</td>
-                                    <td><span class="tag tag-warning">0912376352</span></td>
-                                </tr>
-                                <tr>
-                                    <td>#627</td>
-                                    <td>Cút rang bơ</td>
-                                    <td>12/3/1999</td>
-                                    <td>
-                                        <span class="tag tag-primary">01287326654</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#175</td>
-                                    <td>Hủ tiếu nam vang</td>
-                                    <td>4/12/20000</td>
-                                    <td><span class="tag tag-danger">0912376763</span></td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <!-- / col-12 -->
+                <hr class="dark horizontal my-0">
+
             </div>
         </div>
-        <!--END left-->
-        <!--Right-->
-        <div class="col-md-12 col-lg-6">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="tile">
-                        <h3 class="tile-title">Dữ liệu 6 tháng đầu vào</h3>
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <canvas
-                                class="embed-responsive-item"
-                                id="lineChartDemo"
-                            ></canvas>
-                        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+                <div class="card-header p-3 pt-2">
+                    <div class="text-end pt-1">
+                        <p class="text-sm mb-0 text-capitalize">Sản phẩm</p>
+                        <h4 class="mb-0">{{ $productCount }}</h4>
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="tile">
-                        <h3 class="tile-title">Thống kê 6 tháng doanh thu</h3>
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <canvas
-                                class="embed-responsive-item"
-                                id="barChartDemo"
-                            ></canvas>
-                        </div>
-                    </div>
-                </div>
+                <hr class="dark horizontal my-0">
+
             </div>
         </div>
-        <!--END right-->
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+                <div class="card-header p-3 pt-2">
+                    <div class="text-end pt-1">
+                        <p class="text-sm mb-0 text-capitalize">Danh mục</p>
+                        <h4 class="mb-0">{{ $categoryCount }}</h4>
+                    </div>
+                </div>
+                <hr class="dark horizontal my-0">
+
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+                <div class="card-header p-3 pt-2">
+                    <div class="text-end pt-1">
+                        <p class="text-sm mb-0 text-capitalize">Mã giảm giá</p>
+                        <h4 class="mb-0">{{ $couponCount }}</h4>
+                    </div>
+                </div>
+                <hr class="dark horizontal my-0">
+            </div>
+        </div>
     </div>
+    <div id="chart">
+        <canvas id="myChart" width="400" height="200"></canvas>
+    </div>
+    <button id="btnMonthly" class="btn btn-primary">Thống kê theo tháng</button>
+    <button id="btnDaily" class="btn btn-success">Thống kê theo ngày</button>
+    <div class="row mb-3">
+        <div class="col-12 col-lg-6">
+            <div class="card card-table">
+                <div class="card-header">
+                    <div class="title">Đơn hàng gần đây</div>
+                </div>
+                <div class="card-body table-responsive">
+                    <table class="table table-striped table-borderless">
+                        <thead>
+                        <tr>
+                            <th style="width:40%;">Khách hàng</th>
+                            <th class="number">Giá</th>
+                            <th style="width:20%;">Ngày tạo</th>
+                            <th style="width:20%;">Trạng thái</th>
+                        </tr>
+                        </thead>
+                        <tbody class="no-border-x">
+                        @foreach ($orders as $order)
+                            <tr>
+                                <td>{{ $order->customer_name }}</td>
+                                <td class="number">{{number_format($order->total, 0, '', ',')}}đ</td>
+                                <td>{{ $order->created_at->format('M d, Y') }}</td>
+                                <td class="text-{{ $order->status == 'Đang chờ xử lý' ? 'warning' :
+                                                ($order->status == 'Chấp nhận' ? 'primary' :
+                                                ($order->status == 'Giao hàng' ? 'info' :
+                                                ($order->status == 'Thành công' ? 'success' : 'danger'))) }}">
+                                    {{ $order->status }}
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="card card-table">
+                <div class="card-header">
+                    <div class="title">Khách hàng mới</div>
+                </div>
+                <div class="card-body table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th style="width:37%;">Tên khách hàng</th>
+                            <th style="width:36%;">Số sản phẩm</th>
+                            <th>Ngày tạo</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($newCustomers as $customer)
+                            <tr>
+                                <td>{{ $customer->name }}</td>
+                                <td>{{ $customer->orders->flatMap->productOrders->sum('product_quantity') }}</td>
+                                <td>{{ $customer->created_at->format('M d, Y') }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Biến global cho biểu đồ
+        var chart;
+
+        // Hàm để tạo và cập nhật biểu đồ doanh thu
+        function createOrUpdateChart(labels, data, backgroundColor, borderColor) {
+            // Nếu biểu đồ chưa được tạo, thì tạo mới
+            if (!chart) {
+                var ctx = document.getElementById('myChart').getContext('2d');
+                chart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Doanh thu',
+                            data: data,
+                            backgroundColor: backgroundColor,
+                            borderColor: borderColor,
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            } else {
+                // Nếu biểu đồ đã tồn tại, cập nhật dữ liệu
+                chart.data.labels = labels;
+                chart.data.datasets[0].data = data;
+                chart.update();
+            }
+        }
+
+        // Mặc định hiển thị thống kê doanh thu theo ngày
+        handleDailyChart();
+
+        // Thêm sự kiện cho nút thống kê theo tháng
+        document.getElementById('btnMonthly').addEventListener('click', function() {
+            // Gọi hàm để thực hiện thống kê theo tháng
+            handleMonthlyChart();
+        });
+
+        // Thêm sự kiện cho nút thống kê theo ngày
+        document.getElementById('btnDaily').addEventListener('click', function() {
+            // Gọi hàm để thực hiện thống kê theo ngày
+            handleDailyChart();
+        });
+
+        // Hàm để thực hiện thống kê theo tháng
+        function handleMonthlyChart() {
+            // Gọi hàm từ server để lấy dữ liệu thống kê theo tháng (có thể sử dụng Ajax)
+            var monthlyData = {!! json_encode($monthlyData) !!};
+
+            // Cập nhật biểu đồ
+            createOrUpdateChart(monthlyData.map(item => item.date), monthlyData.map(item => item.revenue), 'rgba(75, 192, 192, 0.2)', 'rgba(75, 192, 192, 1)');
+        }
+
+        // Hàm để thực hiện thống kê theo ngày
+        function handleDailyChart() {
+            // Gọi hàm từ server để lấy dữ liệu thống kê theo ngày (có thể sử dụng Ajax)
+            var dailyData = {!! json_encode($dailyData) !!};
+
+            // Cập nhật biểu đồ
+            createOrUpdateChart(dailyData.map(item => item.date), dailyData.map(item => item.revenue), 'rgba(255, 99, 132, 0.2)', 'rgba(255, 99, 132, 1)');
+        }
+    </script>
+
 @endsection

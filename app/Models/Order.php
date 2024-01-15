@@ -21,5 +21,13 @@ class Order extends Model
         'payment',
         'user_id'
     ];
+    public function getWithPaginateBy($userId)
+    {
+        return $this->whereUserId($userId)->latest('id')->paginate(10);
+    }
+    public function productOrders()
+    {
+        return $this->hasMany(ProductOrder::class, 'order_id');
+    }
 
 }

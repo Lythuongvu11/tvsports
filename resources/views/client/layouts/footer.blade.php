@@ -12,8 +12,7 @@
                 <div class="col-md-6 mb-5">
                     <h5 class="text-secondary text-uppercase mb-4">Cửa hàng</h5>
                     <div class="d-flex flex-column">
-                        <a class="text-secondary mb-2" href="{{ route('home') }}"><i class="fa fa-angle-right mr-2"></i>Trang chủ</a>
-                        <a class="text-secondary mb-2" href="{{ route('shop') }}"><i class="fa fa-angle-right mr-2"></i>Sản phẩm</a>
+                        <a class="text-secondary mb-2" href="{{ route('client.home') }}"><i class="fa fa-angle-right mr-2"></i>Trang chủ</a>
                         <a class="text-secondary mb-2" href="{{ route('blog') }}"><i class="fa fa-angle-right mr-2"></i>Tin tức</a>
                         <a class="text-secondary mb-2" href="{{ route('contact') }}"><i class="fa fa-angle-right mr-2"></i>Liên hệ</a>
                     </div>
