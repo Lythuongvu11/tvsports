@@ -95,7 +95,7 @@
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav mr-auto py-0">
                     <a href="{{ route('client.home') }}" class="nav-item nav-link {{ request()->is('/') || Route::currentRouteName() === 'client.home' ? 'active' : '' }}">Trang chủ</a>
-                    <a href="{{ route('client.products.index') }}" class="nav-item nav-link {{ request()->is('client/products*') || request()->is('products*') ? 'active' : '' }}">Sản phẩm</a>
+                    <a href="{{ route('client.products.index') }}" class="nav-item nav-link {{ request()->is('client/products*') || request()->is('products*')|| request()->is('product-detail/*') ? 'active' : '' }}">Sản phẩm</a>
                     <a href="{{ route('blog') }}" class="nav-item nav-link {{ request()->is('blog*') ? 'active' : '' }}">Tin tức</a>
                     <a href="{{ route('contact') }}" class="nav-item nav-link {{ request()->is('contact*') ? 'active' : '' }}">Liên hệ</a>
                     @if(auth('user')->check())
