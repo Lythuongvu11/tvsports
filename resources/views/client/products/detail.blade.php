@@ -53,7 +53,9 @@
                        <h3>{{ $product->name}}</h3>
                        <div class="mb-4">
                            <h3 class="font-weight-semi-bold d-inline mr-2">{{number_format($product->price, 0, '', ',')}}đ</h3>
-                           <h5 class="text-muted d-inline"><del>{{ number_format($product->price + ($product->price * $product->sale / 100), 0, '', ',') }}đ</del></h5>
+                           @if ($product->sale >0)
+                               <h5 class="text-muted d-inline"><del>{{ number_format($product->price + ($product->price * $product->sale / 100), 0, '', ',') }}đ</del></h5>
+                               @endif
                        </div>
                        <a class="mb-3" onclick="toggleImage()">Hướng dẫn chọn size giày</a>
                        <div id="sizeChart" style="display:none;">
@@ -194,7 +196,7 @@
         <div class="row px-xl-5">
             @foreach( $similarProducts as $item)
                 <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                    <div class="product-item bg-light mb-4 d-flex flex-column" style="min-height: 500px;">
+                    <div class="product-item bg-light mb-4 d-flex flex-column" style="height: 500px;">
                         <div class="product-img position-relative overflow-hidden">
                             <img class="img-fluid w-100" src="{{ asset($item->image) }}" alt="" style="max-width: 100%; height: auto;">
                             <div class="product-action">
@@ -207,7 +209,10 @@
                         <div class="text-center py-4 mt-auto">
                             <a class="h6 text-decoration-none" href="{{ route('client.product.show',$item->id) }}">{{$item->name}}</a>
                             <div class="d-flex align-items-center justify-content-center mt-2">
-                                <h5>{{number_format($item->price, 0, '', ',')}}đ</h5><h6 class="text-muted ml-2"><del>{{ number_format($item->price + ($item->price * $item->sale / 100), 0, '', ',') }}đ</del></h6>
+                                <h5>{{number_format($item->price, 0, '', ',')}}đ</h5>
+                                @if ($item->sale >0)
+                                    <h6 class="text-muted ml-2"><del>{{ number_format($item->price + ($item->price * $item->sale / 100), 0, '', ',') }}đ</del></h6>
+                                @endif
                             </div>
                         </div>
                     </div>

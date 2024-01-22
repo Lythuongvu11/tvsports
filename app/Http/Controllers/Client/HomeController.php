@@ -51,7 +51,7 @@ class HomeController extends Controller
     }
     public function new()
     {
-        $productsNew = $this->product->latest('id')->get();
+        $productsNew = $this->product->latest('id')->take(8)->get();
         $banners = $this->banner->take(3)->get();
         return view('client.home.new',compact('productsNew','banners'));
     }

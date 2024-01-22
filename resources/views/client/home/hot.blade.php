@@ -66,7 +66,7 @@
         <div class="row px-xl-5">
             @foreach( $productsHot as $product)
                 <div class="col-lg-3 col-md-4 col-sm-6 pb-1" >
-                    <div class="product-item bg-light mb-4 d-flex flex-column" style="min-height: 500px;">
+                    <div class="product-item bg-light mb-4 d-flex flex-column" style="height: 500px;">
                         <div class="product-img position-relative overflow-hidden">
                             <img class="img-fluid w-100" src="{{ asset($product->image) }}" alt="" style="max-width: 100%; height: auto;">
                             <div class="product-action">
@@ -79,7 +79,10 @@
                         <div class="text-center py-4 mt-auto">
                             <a class="h6 text-decoration-none" href="{{ route('client.product.show',$product->id) }}">{{$product->name}}</a>
                             <div class="d-flex align-items-center justify-content-center mt-2">
-                                <h5>{{number_format($product->price, 0, '', ',')}}đ</h5><h6 class="text-muted ml-2"><del>{{ number_format($product->price + ($product->price * $product->sale / 100), 0, '', ',') }}đ</del></h6>
+                                <h5>{{number_format($product->price, 0, '', ',')}}đ</h5>
+                               @if ($product->sale >0)
+                                    <h6 class="text-muted ml-2"><del>{{ number_format($product->price + ($product->price * $product->sale / 100), 0, '', ',') }}đ</del></h6>
+                                 @endif
                             </div>
                         </div>
                     </div>

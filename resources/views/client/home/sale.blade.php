@@ -65,7 +65,7 @@
         <div class="row px-xl-5">
             @foreach( $productsSale as $saleProduct)
                 <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                    <div class="product-item bg-light mb-4 d-flex flex-column" style="min-height: 500px;">
+                    <div class="product-item bg-light mb-4 d-flex flex-column" style="height: 500px;">
                         <div class="product-img position-relative overflow-hidden">
                             <img class="img-fluid w-100" src="{{ asset($saleProduct->image) }}" alt="" style="max-width: 100%; height: auto;">
                             <div class="product-action">
