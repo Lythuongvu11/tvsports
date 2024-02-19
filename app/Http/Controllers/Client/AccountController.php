@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Users\AccountUpdate;
 use App\Models\User;
+use App\Models\UserPoint;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -21,7 +22,9 @@ class AccountController extends Controller
     }
     public function index()
     {
-        return view('client.account.index');
+        $user = Auth::user();
+        $userPoints = UserPoint::where('user_id', $user->id)->first();
+        return view('client.account.index', compact('user', 'userPoints'));
     }
 
     public function edit()

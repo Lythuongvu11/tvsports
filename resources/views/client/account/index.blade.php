@@ -20,6 +20,7 @@
                             <li class="list-group-item"><strong>Số điện thoại:</strong> {{ auth('user')->user()->phone }}</li>
                             <li class="list-group-item"><strong>Địa chỉ:</strong> {{ auth('user')->user()->address }}</li>
                             <li class="list-group-item"><strong>Giới tính:</strong> {{ auth('user')->user()->gender }}</li>
+                            <li class="list-group-item"><strong>Cấp bậc thành viên:</strong> {{ $userPoints->membership_level ?? 'Chưa xác định' }}</li>
                         </ul>
                     </div>
                 </div>

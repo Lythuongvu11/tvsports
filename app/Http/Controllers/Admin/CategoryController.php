@@ -86,6 +86,9 @@ class CategoryController extends Controller
     public function destroy(string $id)
     {
         $category = $this->category->findOrFail($id);
+        foreach ($category->products as $product){
+            $product->delete();
+        }
         $category->delete();
         return redirect()->route('categories.index')->with(['message'=> 'Xóa danh mục '. $category->name. ' thành công']);
     }

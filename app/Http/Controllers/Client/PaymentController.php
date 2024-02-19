@@ -96,11 +96,10 @@ class PaymentController extends Controller
             $order = Order::findOrFail($orderID);
 
             // Kiểm tra trạng thái đơn hàng để tránh xử lý trạng thái trùng lặp
-            if ($order->status != 'Xác nhận') {
+            if ($order->status != 'Chấp nhận') {
                 // Cập nhật trạng thái đơn hàng thành completed
-                $order->status = 'Xác nhận';
+                $order->status = 'Chấp nhận';
                 $order->save();
-
             }
 
             return view('client.cart.success');

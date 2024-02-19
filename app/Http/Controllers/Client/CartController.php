@@ -322,12 +322,12 @@ class CartController extends Controller
                 // Duyệt qua từng sản phẩm trong giỏ hàng
                 foreach ($cartItems as $cartItem) {
                     $product = $cartItem->products;
-//                    dd($product->pluck('id')->toArray());
 
                     // Kiểm tra xem sản phẩm có thuộc danh mục của mã giảm giá hay không
                     if ($this->isProductInCouponCategory($product, $coupon)) {
                         // Áp dụng giảm giá cho sản phẩm
                         $discountAmount = $coupon->value;
+                        break;
                     } else {
                         $discountAmount = 0;
                         // Báo lỗi nếu sản phẩm không thuộc danh mục của mã giảm giá
@@ -357,8 +357,7 @@ class CartController extends Controller
         // Kiểm tra xem sản phẩm có liên kết với mã giảm giá và mã giảm giá có danh mục không
         if ($coupon && $coupon->categories()->exists()) {
             // Lấy danh sách danh mục của sản phẩm thông qua bảng trung gian
-            $productCategories = $product->pluck('id')->toArray();
-
+            $productCategories = $product->pluck('product_id')->toArray();
             // Kiểm tra xem sản phẩm thuộc danh mục của mã giảm giá hay không
             return count(array_intersect($productCategories, $coupon->categories->pluck('id')->toArray())) > 0;
         }
